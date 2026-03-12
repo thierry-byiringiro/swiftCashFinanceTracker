@@ -1,11 +1,11 @@
 import { Form, redirect } from "react-router-dom";
 import type { Transactions } from "../assets/types.ts";
-export async function action({ request }) {
+export async function action({ request }: { request: Request }) {
   const formData = await request.formData();
   const transactions: Transactions = {
     id: crypto.randomUUID(),
     description: formData.get("description") as string,
-    amount: formData.get("amount") as number,
+    amount: Number(formData.get("amount")),
     type: formData.get("type") as "income" | "expense",
     category: formData.get("category") as any,
     date: formData.get("date") as string,

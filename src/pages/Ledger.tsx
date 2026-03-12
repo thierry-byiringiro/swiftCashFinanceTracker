@@ -1,11 +1,11 @@
 import { NavLink, Outlet } from "react-router-dom";
-
+import type { Transactions } from "../assets/types";
 export default function Ledger() {
   const currentTransactions = JSON.parse(
     localStorage.getItem("transaction") || "[]",
   );
 
-  const transaction = currentTransactions.map((el) => (
+  const transaction = currentTransactions.map((el : Transactions) => (
     <tr key={el.id} className="border-b hover:bg-gray-50 transition-colors">
       <td className="px-4 py-3 font-medium text-gray-700">{el.description}</td>
 

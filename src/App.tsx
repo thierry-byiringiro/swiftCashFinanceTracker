@@ -7,7 +7,7 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
-import Dashboard from "./pages/Dashboard";
+import Dashboard from "./pages/Dashboard.tsx";
 import Forms, { action as formAction } from "./pages/Forms";
 import Ledger from "./pages/Ledger";
 import Layout from "./component/Layout";

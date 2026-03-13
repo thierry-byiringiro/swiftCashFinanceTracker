@@ -1,5 +1,6 @@
 import { Form, redirect } from "react-router-dom";
 import type { Transactions } from "../assets/types.ts";
+import { useEffect, useRef } from "react";
 export async function action({ request }: { request: Request }) {
   const formData = await request.formData();
   const transactions: Transactions = {
@@ -18,13 +19,22 @@ export async function action({ request }: { request: Request }) {
   return redirect("/transactions");
 }
 
-export default function TransactionForm() {
+export default function TransactionForm() { 
+  const focus = useRef<HTMLInputElement>(null);
+  useEffect(() => {
+    if (focus.current) {
+      focus.current.focus();
+    }
+  }, []);
   return (
     <Form
       method="post"
       className="bg-white h-130 p-6 rounded-lg shadow-md w-full max-w-md space-y-2 text-black mx-auto mt-10"
     >
-      <h2 className="text-2xl font-semibold text-gray-800 text-center">
+      <h2
+        className="text-2xl font-semibold text-gray-800 text-center"
+        ref={focus}
+      >
         Add Transaction
       </h2>
 
@@ -108,6 +118,7 @@ export default function TransactionForm() {
           type="date"
           name="date"
           id="date"
+          max={new Date().toISOString().split("T")[0]}
           className="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
           required
         />

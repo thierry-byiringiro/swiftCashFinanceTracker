@@ -12,6 +12,7 @@ import Forms, { action as formAction } from "./pages/Forms";
 import Ledger from "./pages/Ledger";
 import Layout from "./component/Layout";
 import TransactionLayout from "./pages/TransactionLayout";
+import DeleteTransaction,{loader as deleteLoader} from "./component/DeleteTransaction.tsx";
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
@@ -20,6 +21,7 @@ function App() {
         <Route path="transactions" element={<TransactionLayout />}>
           <Route index element={<Ledger />} />
           <Route path="add" element={<Forms />} action={formAction} />
+          <Route path="add/:id" element={<DeleteTransaction/>} loader={deleteLoader}/>
         </Route>
       </Route>,
     ),

@@ -31,7 +31,7 @@ export default function Dashboard() {
           Add Transaction
         </NavLink>
       </div>
-      <div className="flex gap-6">
+      <div className="flex gap-6 flex-wrap">
         <div className="flex flex-col justify-center bg-black text-red-500 rounded-lg shadow-lg p-6 w-52">
           <p className="text-sm uppercase tracking-wide text-gray-300">
             Total Income
@@ -51,6 +51,12 @@ export default function Dashboard() {
             Total Amount
           </p>
           <p className="text-2xl font-bold mt-2">${total}</p>
+        </div>
+        <div className="flex flex-col justify-center bg-black text-red-500 rounded-lg shadow-lg p-6 w-52">
+          <p className="text-sm uppercase tracking-wide text-gray-300">
+            Current Balance
+          </p>
+          <p className="text-2xl font-bold mt-2">${balance}</p>
         </div>
       </div>
     </div>

@@ -29,7 +29,7 @@ function App() {
 
   return (
     <>
-      <div className="w-200 h-150 flex mt-5 mx-auto bg-[#475868]">
+      <div className="w-200 h-150 flex mt-5 mx-auto bg-[#475868]  rounded-md">
         <RouterProvider router={router} />
       </div>
     </>
